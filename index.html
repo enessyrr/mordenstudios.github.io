@@ -1,30 +1,61 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Matematik AI Sohbet</title>
-  <link rel="stylesheet" href="style.css" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mini Expert Option Demo</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div id="container">
-    <header>
-      <h1>🧠 Matematik AI Sohbet</h1>
-    </header>
-    <main id="chat-window">
-      <div id="messages"></div>
-    </main>
-    <form id="chat-form">
-      <input
-        id="user-input"
-        type="text"
-        placeholder="Sorunuzu yazın ve Enter'a basın..."
-        autocomplete="off"
-        required
-      />
-      <button type="submit">Gönder</button>
-    </form>
+<div class="app">
+  <header>
+    <h1>Mini Expert Option Demo</h1>
+    <div class="balance-card">
+      <div>Bakiyen</div>
+      <div id="balance">10.000 ₺</div>
+    </div>
+  </header>
+
+  <main>
+    <section class="market">
+      <h2>Piyasalar</h2>
+      <div id="stocks" class="stocks-grid"></div>
+    </section>
+
+    <section class="portfolio">
+      <h2>Portföy & İşlem Geçmişi</h2>
+      <div id="portfolio" class="portfolio-grid"></div>
+      <div id="history" class="history"></div>
+    </section>
+  </main>
+</div>
+
+<template id="stock-template">
+  <div class="stock">
+    <div class="left">
+      <div class="symbol"></div>
+      <div class="name"></div>
+    </div>
+    <div class="right">
+      <canvas class="spark" width="120" height="40"></canvas>
+      <div class="price">0.00 ₺</div>
+      <div class="chg">+0.00%</div>
+    </div>
   </div>
-  <script src="script.js"></script>
+</template>
+
+<div id="tradePanel" class="trade-panel hidden">
+  <h3 id="tradeSymbol">Hisse</h3>
+  <div class="trade-info">Fiyat: <span id="tradePrice">0.00</span> ₺</div>
+  <label>Adet</label>
+  <input type="number" id="tradeQty" min="1" value="1">
+  <div class="trade-buttons">
+    <button id="buyBtn" class="btn green">SATIN AL</button>
+    <button id="sellBtn" class="btn red">SAT</button>
+  </div>
+  <button id="closeTrade" class="btn close">KAPAT</button>
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
